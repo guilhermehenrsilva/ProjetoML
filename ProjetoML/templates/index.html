@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Deployment ML Project</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/style.css') }}">
+  
+</head>
+
+<body>
+ <div class="login">
+  <h1>Previsão de Obesidade</h1>
+
+  
+  <form action="{{ url_for('predict')}}" method="post">
+  <div class="form-grid">
+    <label for="gender">Sexo</label>
+    <select name="gender">
+      <option value="1">Masculino</option>
+      <option value="0">Feminino</option>
+    </select>
+
+    <label for="age">Idade</label>
+    <input type="number" name="age" placeholder="Idade" required />
+
+    <label for="height">Altura</label>
+    <input type="number" name="height" placeholder="Altura (cm)" required />
+
+    <label for="weight">Peso</label>
+    <input type="number" name="weight" placeholder="Peso (kg)" required />
+
+    <label for="family_history">Histórico de obesidade na família?</label>
+    <select name="family_history">
+      <option value="1">Sim</option>
+      <option value="0">Não</option>
+    </select>
+
+    <label for="fcvc">Frequência de consumo de vegetais</label>
+    <select name="fcvc">
+      <option value="1">Baixa</option>
+      <option value="2">Média</option>
+      <option value="3">Alta</option>
+    </select>
+
+    <label for="ncp">Número de refeições por dia</label>
+    <input type="number" name="ncp" placeholder="Ex: 3" required />
+
+    <label for="caec">Consumo entre refeições</label>
+    <select name="caec">
+      <option value="0">Nunca</option>
+      <option value="1">Às vezes</option>
+      <option value="2">Frequentemente</option>
+    </select>
+
+    <label for="ch2o">Consumo de água diário</label>
+    <select name="ch2o">
+      <option value="1">Pouco</option>
+      <option value="2">Moderado</option>
+      <option value="3">Alto</option>
+    </select>
+
+    <label for="faf">Frequência de atividade física</label>
+    <select name="faf">
+      <option value="0">Nenhuma</option>
+      <option value="1">Baixa</option>
+      <option value="2">Média</option>
+      <option value="3">Alta</option>
+    </select>
+
+    <label for="tue">Uso de dispositivos eletrônicos</label>
+    <select name="tue">
+      <option value="1">Baixo</option>
+      <option value="2">Médio</option>
+      <option value="3">Alto</option>
+    </select>
+
+    <label for="calc">Consumo de álcool</label>
+    <select name="calc">
+      <option value="0">Nunca</option>
+      <option value="1">Às vezes</option>
+      <option value="2">Frequentemente</option>
+    </select>
+
+    <!-- 🔹 Campo Opcional: Modo de transporte comum -->
+    <label for="mtrans">Modo de transporte</label>
+    <select name="mtrans">
+      <option value="0">Transporte Público</option>
+      <option value="1">Automóvel</option>
+      <option value="2">Bicicleta</option>
+      <option value="3">Caminhada</option>
+      <option value="4">Motocicleta</option>
+    </select>
+  </div>
+
+    <button type="submit" class="btn btn-primary btn-block btn-large">Identificar obesidade</button>
+  </form>
+
+
+  <br><br>
+  {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>

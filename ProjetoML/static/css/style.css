@@ -1,0 +1,88 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+html, body {
+  font-family: "Helvetica", sans-serif;
+  background: #000;
+  color: #fff;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  height: 100vh; /* Garante que ocupa toda a tela */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  color: #fff;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  letter-spacing: 1px;
+}
+
+.login {
+  width: 80%;
+  padding: 20px;
+  margin: 40px auto;
+  background: #111;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+  overflow: auto;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 15px;
+  width: 100%;
+  align-items: center;
+}
+
+label {
+  text-align: right;
+  padding-right: 10px;
+  font-size: 16px;
+}
+
+@media (max-width: 600px) {
+  .form-grid {
+    grid-template-columns: 1fr; /* Muda para uma única coluna */
+  }
+  
+  label {
+    text-align: left; /* Alinha label à esquerda */
+    padding-bottom: 5px; /* Dá um espaço entre label e input */
+  }
+}
+
+input, select {
+  width: 100%;
+  padding: 10px;
+  background: #222;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  font-size: 14px;
+  color: #fff;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+button {
+  grid-column: span 2;
+  padding: 10px;
+  font-size: 16px;
+  background: #4CAF50;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #45a049;
+}
